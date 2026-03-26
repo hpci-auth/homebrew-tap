@@ -4,14 +4,13 @@ class Hpcissh < Formula
 
   # url "https://github.com/hpci-auth/hpcissh-clients.git",
   #     tag: "v1.12.0"
-  url "https://github.com/soum-takuya/hpcissh-clients-dev.git",
-      revision: "75119d445353640db1a462215c73e3f107c9c593"
-  version "1.12.0-rc5"
+  url "https://github.com/hpci-auth/hpcissh-clients-dev.git",
+      revision: "af294e01031c3f3bf5ba34f6350fe52c196f7f66"
+  version "1.12.0-rc6"
 
   license "Apache-2.0"
 
-  # head "https://github.com/hcpi-auth/hpcissh-clients.git", branch: "main"
-  head "https://github.com/soum-takuya/hpcissh-clients-dev.git", branch: "develop"
+  head "https://github.com/hcpi-auth/hpcissh-clients.git", branch: "develop"
 
   bottle do
     root_url "https://github.com/soum-takuya/homebrew-tap-hpcidev/releases/download/hpcissh-1.12.0-rc5"
