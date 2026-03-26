@@ -4,7 +4,7 @@ class Hpcissh < Formula
 
   # url "https://github.com/hpci-auth/hpcissh-clients.git",
   #     tag: "v1.12.0"
-  url "https://github.com/hpci-auth/hpcissh-clients-dev.git",
+  url "https://github.com/hpci-auth/hpcissh-clients.git",
       revision: "af294e01031c3f3bf5ba34f6350fe52c196f7f66"
   version "1.12.0-rc6"
 
