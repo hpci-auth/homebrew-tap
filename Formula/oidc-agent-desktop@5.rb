@@ -6,6 +6,12 @@ class OidcAgentDesktopAT5 < Formula
   license "MIT"
   revision 1
 
+  bottle do
+    root_url "https://github.com/hpci-auth/homebrew-tap/releases/download/oidc-agent-desktop@5-5.3.4_1"
+    sha256 cellar: :any, arm64_tahoe:   "849b95a1bb5df2c2230edb52da650a3df9b5cfbf1e8ca36d6d9766f9ee63265f"
+    sha256 cellar: :any, arm64_sequoia: "0737780af9bcee598993e3100ce3fc95daf1cbf2ef159f3aad20659973af1874"
+  end
+
   depends_on "help2man" => :build
   depends_on "argp-standalone"
   depends_on "libmicrohttpd"
