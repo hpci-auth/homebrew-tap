@@ -47,6 +47,7 @@ https://brew.sh/2020/11/18/homebrew-tap-with-bottles-uploaded-to-github-releases
 
 - (In local)
   - git checkout -b <BRANCH_NAME(any)>
+    - Ex. hpcissh1.12.0rc7
   - (Edit files)
   - (git add ...)
   - git commit
