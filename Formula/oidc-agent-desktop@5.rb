@@ -1,10 +1,12 @@
+# ORIGINAL: https://github.com/indigo-dc/homebrew-oidc-agent/blob/master/Formula/oidc-agent.rb
+
 class OidcAgentDesktopAT5 < Formula
   desc "Add oidc-prompt for oidc-agent-cli"
   homepage "https://github.com/indigo-dc/oidc-agent"
-  url "https://github.com/indigo-dc/oidc-agent/archive/refs/tags/v5.3.4.tar.gz"
-  sha256 "21d670851df8a726a9a8e620ec4557c3fd9cc490a06a57ddddfc5a9bdc8f9df0"
+  url "https://github.com/indigo-dc/oidc-agent/archive/refs/tags/v5.3.5.tar.gz"
+  sha256 "aaa212730560caea21d4d3b72218c55e5eeec1f776d711f58044339f168ed60a"
   license "MIT"
-  revision 1
+  # revision 1
 
   bottle do
     root_url "https://github.com/hpci-auth/homebrew-tap/releases/download/oidc-agent-desktop@5-5.3.4_1"
