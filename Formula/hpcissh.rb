@@ -13,11 +13,11 @@ class Hpcissh < Formula
   head "https://github.com/hpci-auth/hpcissh-clients.git", branch: "develop"
 
   bottle do
-    root_url "https://github.com/hpci-auth/homebrew-tap/releases/download/hpcissh-1.12.0-rc6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "532e5a555a5dc85876001b4479875a53dd6167c818cdf77b7c4737ef655b7062"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eea0a368604595cdca8866cee23218910fca98b4b4a6e9a306ae9b84a2719815"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "f570e64fa990a946a856c9c5573421b5991810a072a90fb120b353f7dca25c0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "724e08e94d4d25a94adeb51ea08a80e752611f9a2aee01a9b78a98a2ac59f2b9"
+    root_url "https://github.com/hpci-auth/homebrew-tap/releases/download/hpcissh-1.12.0-rc7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "707cfcee6fbc0d8e7ce1e28f094c7e5e66209bf49c9aef57af59422664d7a06a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "585fa909cf30ff1b6d70c3fc2560e3d8a875c12640e3e763f13400bb0e4ba18e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6237a75cbc847c5afa33ba1df314422a69ca555ec2b2488858120d7c9382b8c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d942bcf917fb77e0306a043178d39b3c913d3715847be4fe8a97269046f59d06"
   end
 
   depends_on "jwt-agent"
