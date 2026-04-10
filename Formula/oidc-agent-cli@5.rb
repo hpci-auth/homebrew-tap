@@ -9,9 +9,9 @@ class OidcAgentCliAT5 < Formula
   # revision 1
 
   bottle do
-    root_url "https://github.com/hpci-auth/homebrew-tap/releases/download/oidc-agent-cli@5-5.3.4_1"
-    sha256 arm64_tahoe:   "283b41a547fcf5c71412d0c09c3e29a58bc0db2586967cf4432485a0e083da32"
-    sha256 arm64_sequoia: "1048b224c1aa98aaead97a808e77f25af8a74b157c83fcebe1a23bf1f469f1ce"
+    root_url "https://github.com/hpci-auth/homebrew-tap/releases/download/oidc-agent-cli@5-5.3.5"
+    sha256 arm64_tahoe:   "26dd021454a360d840c29b6fbb10bd9fd4272852cc410ee35cc4d5ca17bae6bd"
+    sha256 arm64_sequoia: "138870401ed38b03b911e05b73c8669731d0f57fd072b44e4f7c2a9e80746de2"
   end
 
   depends_on "help2man" => :build
