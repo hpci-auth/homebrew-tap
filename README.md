@@ -1,66 +1,97 @@
-# homebrew-tap for HPCI
+# HPCI Homebrew Tap
 
-## Bottles (Packages)
+## Available formulae
 
-- hpcissh
-  - <https://github.com/hpci-auth/hpcissh-clients>
-- jwt-agent
-  - <https://github.com/oss-tsukuba/jwt-agent>
-- oidc-agent-cli@5
-  - <https://github.com/indigo-dc/oidc-agent>
-  - without oidc-prompt
+- [`hpcissh`](https://github.com/hpci-auth/hpcissh-clients)
+- [`jwt-agent`](https://github.com/oss-tsukuba/jwt-agent)
+- [`oidc-agent-cli@5`](https://github.com/indigo-dc/oidc-agent) (without `oidc-prompt`; for development only, not used in HPCI operations)
 
-## Instructions for users
+## For users
 
-### Tap this repository
+Add this tap:
 
-- brew tap hpci-auth/tap
+```sh
+brew tap hpci-auth/tap
+```
 
-### Install
+Trust the formula before installing it:
 
-- brew install BOTTLE_NAME
-- (Ex.) brew install hpcissh
+```sh
+brew trust --formula hpci-auth/tap/FORMULA_NAME
+```
 
-### Uninstall
+Replace `FORMULA_NAME` with the formula name, such as `hpcissh`.
 
-- brew uninstall BOTTLE_NAME
-- (Ex.) brew uninstall hpcissh
+Install a formula:
 
-### Untap this repository
+```sh
+brew install FORMULA_NAME
+```
 
-- brew untap hpci-auth/tap
+For example:
 
-## Instructions for developers
+```sh
+brew install hpcissh
+```
 
-### Check files in local before "git push"
+Uninstall a formula:
 
-- `REPOSITORY=$(brew --repo hpci-auth/tap-localtest)`
-- .`/check-before-push.sh [Formula name]`
-  - The `${REPOSITORY}` directory is created automatically
-  - Installing, Testing and Uninstalling all formulae or a specified formula
-- Untap the symlink
-  - `rm ${REPOSITORY}`
+```sh
+brew uninstall FORMULA_NAME
+```
 
-### Release (push and merge)
+To remove the tap:
 
-https://brew.sh/2020/11/18/homebrew-tap-with-bottles-uploaded-to-github-releases/
+```sh
+brew untap hpci-auth/tap
+```
 
-- (In local)
-  - git checkout -b <BRANCH_NAME(any)>
-    - Ex. hpcissh1.12.0rc7
-  - (Edit files)
-  - (git add ...)
-  - git commit
-  - git push origin <the BRANCH_NAME>
-- (In GitHub Web UI)
-  - Create a pull request (the BRANCH_NAME to main branch)
-  - Wait until the pull request’s checks become green.
-  - Then label your pull request with the `pr-pull` label.
-  - After a couple of minutes...
-    - PR closed automatically,
-    - bottles uploaded automatically,
-    - commits pushed to the main branch automatically
+## For developers
+
+### Test formulae locally before pushing
+
+Before running the check script, untap the production tap:
+
+```sh
+brew untap hpci-auth/tap
+```
+
+Set the local test tap path and run the check script:
+
+```sh
+REPOSITORY="$(brew --repo hpci-auth/tap-localtest)"
+
+./check-before-push.sh [FORMULA_NAME]
+```
+
+The script registers the current directory as a local tap by creating a symlink at `${REPOSITORY}`. It then installs, tests, and uninstalls every formula, or only the specified formula if you provide one. It removes the tap's trust when the script exits, including after a failure.
+
+Remove the local test tap symlink when you are done:
+
+```sh
+rm "${REPOSITORY}"
+```
+
+### Release
+
+See [Homebrew Tap with bottles uploaded to GitHub Releases](https://brew.sh/2020/11/18/homebrew-tap-with-bottles-uploaded-to-github-releases/) for background.
+
+1. Create a branch, update the formula files, and push the branch:
+
+   Update fields such as `tag`, `revision`, and `version` in the formula files. You do not need to edit the `root_url` and `sha256` lines; they are populated automatically.
+
+   ```sh
+   git checkout -b BRANCH_NAME
+   # Edit the formula files
+   git add <file name...>
+   git commit
+   git push origin BRANCH_NAME
+   ```
+
+2. In the GitHub web interface, create a new pull request from your branch to `main`.
+3. Wait for the pull request checks to pass, then add the `pr-pull` label.
+4. After a few minutes, the pull request will close automatically, the bottles will be uploaded, and the commits will be pushed to `main`.
 
 ### GitHub Actions Runner
 
-https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories
+If a GitHub Actions runner changes or is retired, check the [GitHub-hosted runners documentation](https://docs.github.com/en/actions/reference/runners/github-hosted-runners#standard-github-hosted-runners-for-public-repositories) and update the runner matrix in `.github/workflows/tests.yml`.
