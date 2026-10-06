@@ -36,6 +36,16 @@ ln -s "${THIS_DIR}" "${REPO}"
 
 brew style "${TAP}"
 
+# Trust the whole local tap so dependencies (for example, jwt-agent when
+# installing hpcissh) can be loaded too.
+brew trust "${TAP}"
+
+# This is a temporary local-test tap; remove its trust even if a later step fails.
+cleanup() {
+  brew untrust "${TAP}" || true
+}
+trap cleanup EXIT
+
 for filepath in Formula/*.rb
 do
   fname="${filepath##*/}"
@@ -55,7 +65,7 @@ do
   then
     continue
   fi
-  brew install --verbose --build-from-source "${TAP}/${formula}"
+  brew install --no-ask --verbose --build-from-source "${TAP}/${formula}"
   brew audit --formula "${TAP}/${formula}"
   brew test --verbose "${TAP}/${formula}"
   if [[ "${UNINSTALL}" = 1 ]]
