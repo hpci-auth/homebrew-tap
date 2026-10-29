@@ -3,7 +3,7 @@ class JwtAgent < Formula
   homepage "https://github.com/oss-tsukuba/jwt-agent"
 
   url "https://github.com/oss-tsukuba/jwt-agent.git",
-      tag: "1.1.1"
+      tag: "1.1.1",
       revision: "7af7edb4fce224068304bab719f44efa26e8d7a5"
 
   license "BSD-3-Clause"
